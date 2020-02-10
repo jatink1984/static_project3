@@ -12,7 +12,7 @@ pipeline {
         }
         stage ('Upload to AWS'){
             steps {
-                withAWS(region: 'us-west-2', credentials: 'AKIAWSKQJ3WIYEO7YC7V') {
+                withAWS(region: 'us-west-2', credentials: 'aws-static') {
                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file: 'index.html', bucket: 'project3bucket')
                 }
             }
